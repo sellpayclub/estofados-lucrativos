@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Poppins, DM_Sans } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
@@ -17,6 +17,12 @@ const dmSans = DM_Sans({
   display: 'swap',
 })
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+}
+
 export const metadata: Metadata = {
   title: 'Estofados Lucrativos | Ganhe R$ 7.000 a R$ 9.000 extras por mês',
   description: 'Aprenda a ganhar de R$ 7.000 a R$ 9.000 EXTRAS por mês oferecendo um serviço simples de limpeza de estofados para os mesmos clientes que você já atende — sem trabalhar mais horas.',
@@ -31,11 +37,6 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-  },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
   },
 }
 
