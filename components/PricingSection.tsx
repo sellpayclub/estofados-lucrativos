@@ -13,7 +13,8 @@ const includes = [
 
 export default function PricingSection() {
   return (
-    <AnimatedSection id="oferta" className="py-10 md:py-16 bg-gradient-to-b from-slate-900 to-slate-800">
+    <div id="oferta">
+    <AnimatedSection className="py-10 md:py-16 bg-gradient-to-b from-slate-900 to-slate-800">
       <div className="section-container">
         <div className="text-center mb-10">
           <motion.span
@@ -103,6 +104,7 @@ export default function PricingSection() {
         </motion.div>
       </div>
     </AnimatedSection>
+    </div>
   )
 }
 
