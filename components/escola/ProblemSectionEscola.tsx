@@ -32,7 +32,7 @@ export default function ProblemSectionEscola() {
                 <div className="bg-red-100 p-3 rounded-lg flex-shrink-0">
                   <X size={24} className="text-red-500" />
                 </div>
-                <span className="text-lg font-medium text-slate-700">{problem}</span>
+                <span className="text-base md:text-lg font-medium text-slate-800">{problem}</span>
               </div>
             </StaggerItem>
           ))}
@@ -42,15 +42,15 @@ export default function ProblemSectionEscola() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border-l-4 border-escola-pink-500"
+          className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border-l-4 border-primary-500"
         >
           <p className="text-xl md:text-2xl text-center text-slate-700 mb-4 font-medium">
             💭 E fica pensando:
           </p>
-          <p className="text-xl md:text-2xl text-center text-escola-pink-600 font-bold">
+          <p className="text-xl md:text-2xl text-center text-primary-600 font-bold mb-4">
             "Será que existe algo simples, barato e que realmente funcione?"
           </p>
-          <p className="text-xl md:text-2xl text-center text-slate-900 font-bold mt-4">
+          <p className="text-xl md:text-2xl text-center text-slate-900 font-bold">
             E Sim, Existe! E são as velas aromáticas.
           </p>
         </motion.div>
@@ -58,4 +58,3 @@ export default function ProblemSectionEscola() {
     </AnimatedSection>
   )
 }
-

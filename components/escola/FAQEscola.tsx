@@ -65,7 +65,7 @@ function FAQItem({
             transition={{ duration: 0.2 }}
           >
             <div className="px-5 md:px-6 pb-5 md:pb-6">
-              <p className="text-slate-600 leading-relaxed">{answer}</p>
+              <p className="text-slate-700 leading-relaxed text-base md:text-lg font-medium">{answer}</p>
             </div>
           </motion.div>
         )}

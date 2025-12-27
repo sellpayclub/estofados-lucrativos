@@ -1,15 +1,15 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Calculator, TrendingUp, ArrowRight } from 'lucide-react'
+import { Calculator, ArrowRight } from 'lucide-react'
 import AnimatedSection from '../AnimatedSection'
 
 export default function ProfitCalculator() {
   return (
-    <AnimatedSection className="py-10 md:py-16 bg-gradient-to-b from-escola-cream-50 to-white">
+    <AnimatedSection className="py-10 md:py-16 bg-white">
       <div className="section-container">
         <div className="text-center mb-10">
-          <span className="inline-flex items-center gap-2 bg-escola-gold-100 text-escola-gold-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+          <span className="inline-flex items-center gap-2 bg-slate-100 text-slate-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
             <Calculator size={18} />
             Conta simples
           </span>
@@ -25,7 +25,7 @@ export default function ProfitCalculator() {
             {[
               { label: 'Custo por vela', value: 'R$4', color: 'from-slate-400 to-slate-500' },
               { label: 'Venda média iniciante', value: 'R$35', color: 'from-escola-pink-400 to-escola-pink-500' },
-              { label: 'Lucro por unidade', value: 'R$31', color: 'from-green-500 to-green-600' },
+              { label: 'Lucro por unidade', value: 'R$31', color: 'from-primary-500 to-primary-600' },
             ].map((item, i) => (
               <motion.div
                 key={i}
@@ -45,7 +45,7 @@ export default function ProfitCalculator() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-r from-escola-pink-500 to-escola-pink-600 rounded-3xl p-8 md:p-10 text-center shadow-xl"
+            className="bg-gradient-to-r from-primary-600 to-primary-500 rounded-3xl p-8 md:p-10 text-center shadow-xl"
           >
             <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 mb-6">
               <div className="text-white">
@@ -64,4 +64,3 @@ export default function ProfitCalculator() {
     </AnimatedSection>
   )
 }
-

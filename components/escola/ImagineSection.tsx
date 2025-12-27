@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Sparkles, Clock, DollarSign, Home, Heart, TrendingUp } from 'lucide-react'
+import { Clock, DollarSign, TrendingUp, Heart, Sparkles } from 'lucide-react'
 import AnimatedSection, { StaggerContainer, StaggerItem } from '../AnimatedSection'
 
 const benefits = [
@@ -14,7 +14,7 @@ const benefits = [
 
 export default function ImagineSection() {
   return (
-    <AnimatedSection className="py-10 md:py-16 bg-gradient-to-b from-escola-cream-50 to-white">
+    <AnimatedSection className="py-10 md:py-16 bg-white">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -32,12 +32,12 @@ export default function ImagineSection() {
             <StaggerItem key={i}>
               <motion.div
                 whileHover={{ x: 10 }}
-                className="bg-white rounded-xl p-5 flex items-center gap-4 shadow-sm border border-escola-pink-100"
+                className="bg-slate-50 rounded-xl p-5 flex items-center gap-4 shadow-sm border border-slate-100"
               >
-                <div className="bg-gradient-to-br from-escola-pink-400 to-escola-pink-500 p-3 rounded-lg">
-                  <benefit.icon size={24} className="text-white" />
+                <div className="bg-escola-pink-50 p-3 rounded-lg">
+                  <benefit.icon size={24} className="text-escola-pink-500" />
                 </div>
-                <span className="text-lg font-medium text-slate-700">{benefit.text}</span>
+                <span className="text-base md:text-lg font-medium text-slate-800">{benefit.text}</span>
               </motion.div>
             </StaggerItem>
           ))}
@@ -46,4 +46,3 @@ export default function ImagineSection() {
     </AnimatedSection>
   )
 }
-
