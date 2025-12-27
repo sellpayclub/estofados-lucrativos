@@ -24,6 +24,26 @@ const config: Config = {
         accent: {
           400: '#fbbf24',
           500: '#f59e0b',
+        },
+        escola: {
+          pink: {
+            50: '#fdf2f8',
+            100: '#fce7f3',
+            200: '#fbcfe8',
+            300: '#f9a8d4',
+            400: '#f472b6',
+            500: '#ec4899',
+            600: '#db2777',
+          },
+          gold: {
+            100: '#fef3c7',
+            400: '#fbbf24',
+            500: '#f59e0b',
+          },
+          cream: {
+            50: '#fef7ed',
+            100: '#fef3c7',
+          }
         }
       },
       fontFamily: {
@@ -45,4 +65,5 @@ const config: Config = {
   plugins: [],
 }
 export default config
+
 
