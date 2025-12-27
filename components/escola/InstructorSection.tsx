@@ -29,14 +29,15 @@ export default function InstructorSection() {
         >
           <div className="bg-slate-50 rounded-3xl p-8 md:p-12 shadow-lg border border-slate-100">
             <div className="flex flex-col md:flex-row items-center gap-8 mb-8">
-              {/* Foto da instrutora */}
-              <div className="relative w-48 h-48 md:w-56 md:h-56 flex-shrink-0">
+              {/* Foto da instrutora - ajustada para não cortar */}
+              <div className="relative w-56 h-56 md:w-64 md:h-64 flex-shrink-0">
                 <div className="absolute inset-0 bg-escola-pink-100 rounded-full blur-xl opacity-50" />
-                <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white shadow-xl bg-white">
+                <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white shadow-xl bg-white flex items-center justify-center">
                   <img
                     src="/images/escola/instrutora/mariana-silva.png"
                     alt="Mariana Silva - Criadora da Escola Essência Criativa"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
+                    style={{ objectPosition: 'center top' }}
                     loading="lazy"
                   />
                 </div>
