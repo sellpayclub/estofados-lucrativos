@@ -2,23 +2,20 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronLeft, ChevronRight, MessageSquare, Image as ImageIcon } from 'lucide-react'
+import { ChevronLeft, ChevronRight, MessageSquare } from 'lucide-react'
 import AnimatedSection from '../AnimatedSection'
 
-// Array de depoimentos - atualize quando adicionar as imagens
+// Array de depoimentos com os formatos reais das imagens
 const testimonials = [
-  { id: 1, image: '/images/escola/depoimentos/depoimento-1.jpg', alt: 'Depoimento 1' },
-  { id: 2, image: '/images/escola/depoimentos/depoimento-2.jpg', alt: 'Depoimento 2' },
-  { id: 3, image: '/images/escola/depoimentos/depoimento-3.jpg', alt: 'Depoimento 3' },
-  { id: 4, image: '/images/escola/depoimentos/depoimento-4.jpg', alt: 'Depoimento 4' },
-  { id: 5, image: '/images/escola/depoimentos/depoimento-5.jpg', alt: 'Depoimento 5' },
-  { id: 6, image: '/images/escola/depoimentos/depoimento-6.jpg', alt: 'Depoimento 6' },
+  { id: 1, image: '/images/escola/depoimentos/depoimento-1.png', alt: 'Depoimento 1' },
+  { id: 2, image: '/images/escola/depoimentos/depoimento-2.png', alt: 'Depoimento 2' },
+  { id: 3, image: '/images/escola/depoimentos/depoimento-3.webp', alt: 'Depoimento 3' },
+  { id: 4, image: '/images/escola/depoimentos/depoimento-4.webp', alt: 'Depoimento 4' },
+  { id: 5, image: '/images/escola/depoimentos/depoimento-5.webp', alt: 'Depoimento 5' },
 ]
 
 export default function TestimonialsCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [imageErrors, setImageErrors] = useState<Set<number>>(new Set())
-  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set())
 
   const next = () => {
     setCurrentIndex((prev) => (prev + 1) % testimonials.length)
@@ -28,27 +25,15 @@ export default function TestimonialsCarousel() {
     setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)
   }
 
-  // Auto-play apenas se tiver imagens carregadas
+  // Auto-play
   useEffect(() => {
-    if (loadedImages.size === 0) return
     const interval = setInterval(() => {
       next()
     }, 5000)
     return () => clearInterval(interval)
-  }, [loadedImages.size])
-
-  const handleImageLoad = (id: number) => {
-    setLoadedImages(prev => new Set(prev).add(id))
-  }
-
-  const handleImageError = (id: number) => {
-    setImageErrors(prev => new Set(prev).add(id))
-  }
+  }, [])
 
   const currentTestimonial = testimonials[currentIndex]
-  const hasError = imageErrors.has(currentTestimonial.id)
-  const hasLoaded = loadedImages.has(currentTestimonial.id)
-  const showPlaceholder = hasError || !hasLoaded
 
   return (
     <AnimatedSection className="py-10 md:py-16 bg-slate-50">
@@ -74,33 +59,12 @@ export default function TestimonialsCarousel() {
                 transition={{ duration: 0.3 }}
                 className="absolute inset-0"
               >
-                {showPlaceholder ? (
-                  <div className="w-full h-full flex items-center justify-center p-8 bg-gradient-to-br from-slate-50 to-slate-100">
-                    <div className="text-center max-w-md">
-                      <div className="inline-flex items-center justify-center w-20 h-20 bg-escola-pink-100 rounded-full mb-4">
-                        <ImageIcon size={40} className="text-escola-pink-500" />
-                      </div>
-                      <p className="text-lg md:text-xl text-slate-700 font-semibold mb-2">
-                        Depoimento {currentTestimonial.id}
-                      </p>
-                      <p className="text-sm md:text-base text-slate-500 mb-4">
-                        Adicione a imagem em:
-                      </p>
-                      <p className="text-xs md:text-sm text-slate-400 font-mono bg-white p-3 rounded border border-slate-200 shadow-sm">
-                        {currentTestimonial.image}
-                      </p>
-                    </div>
-                  </div>
-                ) : (
-                  <img
-                    src={currentTestimonial.image}
-                    alt={currentTestimonial.alt}
-                    className="w-full h-full object-contain p-4"
-                    onLoad={() => handleImageLoad(currentTestimonial.id)}
-                    onError={() => handleImageError(currentTestimonial.id)}
-                    loading="lazy"
-                  />
-                )}
+                <img
+                  src={currentTestimonial.image}
+                  alt={currentTestimonial.alt}
+                  className="w-full h-full object-contain p-4"
+                  loading="lazy"
+                />
               </motion.div>
             </AnimatePresence>
 
@@ -129,22 +93,13 @@ export default function TestimonialsCarousel() {
                   className={`h-2 rounded-full transition-all ${
                     index === currentIndex
                       ? 'bg-escola-pink-500 w-8'
-                      : loadedImages.has(testimonials[index].id)
-                      ? 'bg-escola-pink-300 w-2'
-                      : 'bg-white/50 hover:bg-white/75 w-2'
+                      : 'bg-escola-pink-300 w-2'
                   }`}
                   aria-label={`Ir para depoimento ${index + 1}`}
                 />
               ))}
             </div>
           </div>
-
-          {/* Indicador de quantas imagens foram carregadas */}
-          {loadedImages.size > 0 && loadedImages.size < testimonials.length && (
-            <p className="text-center text-sm text-slate-500 mt-4">
-              {loadedImages.size} de {testimonials.length} depoimentos carregados
-            </p>
-          )}
         </div>
       </div>
     </AnimatedSection>
