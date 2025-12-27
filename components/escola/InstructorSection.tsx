@@ -14,6 +14,7 @@ const achievements = [
 
 export default function InstructorSection() {
   const [imageError, setImageError] = useState(false)
+  const [imageLoaded, setImageLoaded] = useState(false)
 
   return (
     <AnimatedSection className="py-10 md:py-16 bg-white">
@@ -36,18 +37,26 @@ export default function InstructorSection() {
               <div className="relative w-48 h-48 md:w-56 md:h-56 flex-shrink-0">
                 <div className="absolute inset-0 bg-escola-pink-100 rounded-full blur-xl opacity-50" />
                 <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white shadow-xl bg-slate-100 flex items-center justify-center">
-                  {imageError ? (
+                  {imageError || !imageLoaded ? (
                     <User size={96} className="text-slate-400" />
-                  ) : (
-                    <img
-                      src="/images/escola/instrutora/mariana-silva.jpg"
-                      alt="Mariana Silva - Criadora da Escola Essência Criativa"
-                      className="w-full h-full object-cover"
-                      onError={() => setImageError(true)}
-                      loading="lazy"
-                    />
-                  )}
+                  ) : null}
+                  <img
+                    src="/images/escola/instrutora/mariana-silva.jpg"
+                    alt="Mariana Silva - Criadora da Escola Essência Criativa"
+                    className={`w-full h-full object-cover ${imageError || !imageLoaded ? 'hidden' : ''}`}
+                    onLoad={() => setImageLoaded(true)}
+                    onError={() => {
+                      setImageError(true)
+                      setImageLoaded(false)
+                    }}
+                    loading="lazy"
+                  />
                 </div>
+                {!imageLoaded && !imageError && (
+                  <div className="absolute -bottom-2 -right-2 bg-escola-pink-500 text-white text-xs px-2 py-1 rounded-full">
+                    Adicione imagem
+                  </div>
+                )}
               </div>
 
               <div className="text-center md:text-left flex-1">
