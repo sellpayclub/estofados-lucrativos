@@ -25,20 +25,21 @@ export default function Guarantee30() {
               className="flex-shrink-0"
             >
               <div className="relative w-48 h-48">
-                {!imageError ? (
-                  <img
-                    src="/images/escola/garantia-badge.png"
-                    alt="Garantia de 30 dias"
-                    className="w-full h-full object-contain"
-                    onError={() => setImageError(true)}
-                  />
-                ) : (
+                {imageError ? (
                   <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary-500 to-primary-600 rounded-full shadow-xl">
                     <div className="text-center text-white">
                       <div className="text-5xl font-bold">30</div>
                       <div className="text-sm font-medium mt-1">DIAS</div>
                     </div>
                   </div>
+                ) : (
+                  <img
+                    src="/images/escola/garantia-badge.png"
+                    alt="Garantia de 30 dias"
+                    className="w-full h-full object-contain"
+                    onError={() => setImageError(true)}
+                    loading="lazy"
+                  />
                 )}
               </div>
             </motion.div>

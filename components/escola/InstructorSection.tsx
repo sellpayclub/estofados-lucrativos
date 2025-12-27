@@ -36,15 +36,16 @@ export default function InstructorSection() {
               <div className="relative w-48 h-48 md:w-56 md:h-56 flex-shrink-0">
                 <div className="absolute inset-0 bg-escola-pink-100 rounded-full blur-xl opacity-50" />
                 <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white shadow-xl bg-slate-100 flex items-center justify-center">
-                  {!imageError ? (
+                  {imageError ? (
+                    <User size={96} className="text-slate-400" />
+                  ) : (
                     <img
                       src="/images/escola/instrutora/mariana-silva.jpg"
                       alt="Mariana Silva - Criadora da Escola Essência Criativa"
                       className="w-full h-full object-cover"
                       onError={() => setImageError(true)}
+                      loading="lazy"
                     />
-                  ) : (
-                    <User size={96} className="text-slate-400" />
                   )}
                 </div>
               </div>
