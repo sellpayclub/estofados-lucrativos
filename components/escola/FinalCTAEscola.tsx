@@ -39,14 +39,14 @@ export default function FinalCTAEscola() {
             viewport={{ once: true }}
             className="bg-slate-50 rounded-2xl p-6 md:p-8"
           >
-            <p className="text-lg font-medium text-slate-600 mb-6">Você pode continuar:</p>
+            <p className="text-xl font-medium text-slate-600 mb-6">Você pode continuar:</p>
             <div className="space-y-4">
               {continueList.map((item, i) => (
                 <div key={i} className="flex items-center gap-3">
                   <div className="bg-red-100 rounded-full p-1">
-                    <X size={16} className="text-red-500" />
+                    <X size={18} className="text-red-500" />
                   </div>
-                  <span className="text-slate-700 font-medium">{item}</span>
+                  <span className="text-slate-700 font-medium text-lg">{item}</span>
                 </div>
               ))}
             </div>
@@ -58,14 +58,14 @@ export default function FinalCTAEscola() {
             viewport={{ once: true }}
             className="bg-primary-50 rounded-2xl p-6 md:p-8 border-2 border-primary-200"
           >
-            <p className="text-lg font-medium text-primary-700 mb-6">Ou pode:</p>
+            <p className="text-xl font-medium text-primary-700 mb-6">Ou pode:</p>
             <div className="space-y-4">
               {changeList.map((item, i) => (
                 <div key={i} className="flex items-center gap-3">
                   <div className="bg-primary-500 rounded-full p-1">
-                    <Check size={16} className="text-white" />
+                    <Check size={18} className="text-white" />
                   </div>
-                  <span className="text-slate-700 font-medium">{item}</span>
+                  <span className="text-slate-700 font-medium text-lg">{item}</span>
                 </div>
               ))}
             </div>

@@ -25,7 +25,7 @@ export default function HeroEscola() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-base md:text-lg text-slate-600 font-medium mb-4"
+          className="text-lg md:text-xl text-slate-600 font-medium mb-4"
         >
           🕯️ A escola de velas aromáticas mais completa do Brasil
         </motion.p>
@@ -44,7 +44,7 @@ export default function HeroEscola() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-lg md:text-xl text-slate-700 mb-6 max-w-2xl mx-auto leading-relaxed font-medium"
+          className="text-xl md:text-2xl text-slate-700 mb-6 max-w-2xl mx-auto leading-relaxed font-medium"
         >
           Aprenda a criar e vender velas aromáticas lucrativas, mesmo sem experiência.
           <br />

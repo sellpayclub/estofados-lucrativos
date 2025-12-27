@@ -11,7 +11,7 @@
 
   body {
     @apply font-body text-slate-900 bg-white;
-    font-size: 17px;
+    font-size: 18px;
     line-height: 1.7;
   }
 
@@ -21,7 +21,7 @@
 
   @media (max-width: 640px) {
     body {
-      font-size: 18px;
+      font-size: 19px;
     }
   }
 }

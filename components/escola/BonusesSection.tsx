@@ -1,53 +1,73 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Gift, Tag, Sparkles, Lock, Shield } from 'lucide-react'
-import AnimatedSection, { StaggerContainer, StaggerItem } from '../AnimatedSection'
+import { Gift, Check } from 'lucide-react'
+import AnimatedSection from '../AnimatedSection'
 
 const bonuses = [
-  { icon: Tag, title: 'Rótulos Profissionais' },
-  { icon: Sparkles, title: 'Velas inspiradas em marcas famosas' },
-  { icon: Lock, title: 'Modelos secretos campeões de venda' },
-  { icon: Shield, title: 'Método para vender sem redes sociais' },
-  { icon: Gift, title: 'Protocolo Anti-Falhas' },
+  { title: 'Rótulos Profissionais' },
+  { title: 'Velas inspiradas em marcas famosas' },
+  { title: 'Modelos secretos campeões de venda' },
+  { title: 'Método para vender sem redes sociais' },
+  { title: 'Protocolo Anti-Falhas' },
 ]
 
 export default function BonusesSection() {
   return (
-    <AnimatedSection className="py-10 md:py-16 bg-slate-50">
+    <AnimatedSection className="py-10 md:py-16 bg-white">
       <div className="section-container">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          className="bg-white rounded-3xl p-8 md:p-12 shadow-lg border border-slate-100"
-        >
-          <div className="text-center mb-8">
-            <span className="inline-flex items-center gap-2 bg-escola-pink-50 text-escola-pink-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
-              <Gift size={18} />
-              BÔNUS LIBERADO
-            </span>
-            <h2 className="text-2xl md:text-4xl font-heading font-bold text-slate-900 mb-2">
-              5 Bônus Exclusivos
-            </h2>
-            <p className="text-slate-600">
-              Para novas alunas que entrarem até <strong>31 de Janeiro de 2026</strong>
-            </p>
-          </div>
+        <div className="text-center mb-10">
+          <span className="inline-flex items-center gap-2 bg-escola-pink-50 text-escola-pink-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+            <Gift size={18} />
+            BÔNUS LIBERADO PARA NOVAS ALUNAS
+          </span>
+          <h2 className="text-2xl md:text-4xl font-heading font-bold text-slate-900 mb-2">
+            5 Bônus Exclusivos
+          </h2>
+          <p className="text-base md:text-lg text-slate-600">
+            Que entram até 31 de Janeiro de 2026
+          </p>
+        </div>
 
-          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {bonuses.map((bonus, i) => (
-              <StaggerItem key={i}>
-                <div className="bg-slate-50 rounded-xl p-5 flex items-center gap-4 border border-slate-100">
-                  <div className="bg-escola-pink-50 p-3 rounded-lg">
-                    <bonus.icon size={24} className="text-escola-pink-500" />
+        <div className="max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            {/* Imagem do Kit Bonus */}
+            <div className="order-2 md:order-1">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="relative rounded-2xl overflow-hidden shadow-2xl"
+              >
+                <img
+                  src="/images/escola/kit-bonus.png"
+                  alt="Kit Bônus - Escola Essência Criativa"
+                  className="w-full h-auto"
+                  loading="lazy"
+                />
+              </motion.div>
+            </div>
+
+            {/* Lista de bônus */}
+            <div className="order-1 md:order-2 space-y-4">
+              {bonuses.map((bonus, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="bg-slate-50 rounded-xl p-5 flex items-center gap-4 shadow-sm border border-slate-100"
+                >
+                  <div className="bg-escola-pink-500 p-2 rounded-lg flex-shrink-0">
+                    <Check size={24} className="text-white" />
                   </div>
-                  <span className="font-medium text-slate-800 text-base md:text-lg">{bonus.title}</span>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </motion.div>
+                  <span className="font-semibold text-slate-800 text-lg md:text-xl">{bonus.title}</span>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </AnimatedSection>
   )
